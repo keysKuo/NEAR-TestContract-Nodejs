@@ -1,0 +1,32 @@
+GET http://localhost:8080/api/vehicles
+
+###
+
+GET http://localhost:8080/api/vehicles/VH93E4CA6
+
+
+###
+
+POST http://localhost:8080/api/vehicles/create
+Content-Type: application/json
+
+{
+    "type": "truck",
+    "num":"51A2-58944"
+}
+
+###
+
+PUT http://localhost:8080/api/vehicles/update
+Content-Type: application/json
+
+{
+    "id": "VH93E4CA6",
+    "type": "truck2",
+    "status": "unready",
+    "num":"51A2-58942"
+}
+
+###
+
+DELETE http://localhost:8080/api/vehicles/delete/VH3750EBD

@@ -1,0 +1,34 @@
+GET http://localhost:8080/api/drivers/
+
+###
+
+GET http://localhost:8080/api/drivers/DRB3D93
+
+###
+
+POST http://localhost:8080/api/drivers/create
+Content-Type: application/json
+
+{
+    "name": "Kuo Nhan Dung",
+    "contact_info": "0767916592 - nkeyskuo124@gmail.com",
+    "license_number": "9FD84JS4"
+}
+
+###
+
+PUT http://localhost:8080/api/drivers/update
+Content-Type: application/json
+
+{
+    "id": "DRB3D93",
+    "name": "Sheldon Kuo",
+    "contact_info": "0767916592 - sheldon1247@gmail.com",
+    "license_number": "537FJS24",
+    "status": "not working"
+}
+
+###
+
+DELETE http://localhost:8080/api/drivers/delete/DRB3D93
+

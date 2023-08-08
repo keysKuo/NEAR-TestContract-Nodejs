@@ -1,0 +1,31 @@
+GET http://localhost:8080/api/products/
+
+### 
+
+GET http://localhost:8080/api/products/3C5AB4A0-C 
+
+### 
+
+POST http://localhost:8080/api/products/create 
+Content-Type: application/json
+
+{
+    "type_id": "R70F6D",
+    "product_name": "Đèn led RGB 16 triệu màu",
+    "weight": 0.5,
+    "size": "Dài 3m",
+    "price": 249000
+}
+
+### 
+
+PUT http://localhost:8080/api/products/update 
+Content-Type: application/json
+
+{
+
+}
+
+### 
+
+DELETE http://localhost:8080/api/products/delete/id 

@@ -1,0 +1,28 @@
+GET http://localhost:8080/api/product_types
+
+### 
+
+GET http://localhost:8080/api/product_types/id 
+
+### 
+
+POST http://localhost:8080/api/product_types/create 
+Content-Type: application/json
+
+{
+   "type_name": "Gia dụng"
+}
+
+### 
+
+PUT http://localhost:8080/api/product_types/update 
+Content-Type: application/json
+
+{   
+    "type_id": "R70F6D",
+    "type_name": "Trang trí"
+}
+
+### 
+
+DELETE http://localhost:8080/api/product_types/delete/id 
