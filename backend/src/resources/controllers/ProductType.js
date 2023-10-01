@@ -4,8 +4,8 @@ const { uuid } = require('uuidv4');
 
 const controller = {
     find_product_type_by_id: async (req, res, next) => {
-        const { type_id } = req.params;
-        let sSQL = `Select * From __Product_Type Where type_id = '${type_id}'`;
+        const { id } = req.params;
+        let sSQL = `Select * From __Product_Type Where type_id = '${id}'`;
         return data_handling(req, res, sSQL);
     },
 

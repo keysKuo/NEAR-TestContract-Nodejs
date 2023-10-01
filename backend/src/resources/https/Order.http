@@ -1,0 +1,38 @@
+GET http://localhost:8080/api/orders
+
+### 
+
+GET http://localhost:8080/api/orders/:id 
+
+### 
+
+POST http://localhost:8080/api/orders/create 
+Content-Type: application/json
+
+{
+    "products": [
+        {
+            "product_id": "B0B905B8",
+            "quantity": 2,
+            "price": 200000
+        },
+        {
+            "product_id": "C6FBF096",
+            "quantity": 1,
+            "price": 100000
+        },
+        {
+            "product_id": "CB31592E",
+            "quantity": 4,
+            "price": 400000
+        }
+    ],
+    "sender": "Kuo Nhân Dũng",
+    "receiver": "Sheldon Kuo",
+    "send_address": "94/20 Thạnh Lộc 16",
+    "receive_address": "429 Nguyễn Kiệm"
+}
+
+### 
+
+DELETE http://localhost:8080/api/orders/delete/OR0A774 

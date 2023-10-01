@@ -38,7 +38,7 @@ const controller = {
             })
         }
 
-        const product_id = uuid().substring(0,10).toUpperCase();
+        const product_id = uuid().substring(0,8).toUpperCase();
         return await db.ExecProc({
             procedure: `PROC_INSERT_PRODUCT '${product_id}', '${type_id}', N'${product_name}', ${weight}, N'${size}', ${price}`
         })

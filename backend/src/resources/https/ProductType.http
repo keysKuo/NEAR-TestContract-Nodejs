@@ -2,7 +2,7 @@ GET http://localhost:8080/api/product_types
 
 ### 
 
-GET http://localhost:8080/api/product_types/id 
+GET http://localhost:8080/api/product_types/R70F6D
 
 ### 
 

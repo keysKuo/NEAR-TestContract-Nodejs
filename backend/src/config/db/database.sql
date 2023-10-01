@@ -1,18 +1,19 @@
 Create database Ezdeli
-Drop database Ezdeli
+--Drop database Ezdeli
 use Ezdeli
 
 Create Table _Order (
     order_id varchar(10) Primary key,
     sender nvarchar(255) not null,
     receiver nvarchar(255) not null,
-    send_address varchar(255) not null,
-    receive_address varchar(255) not null,
-    order_at date,
+    send_address nvarchar(255) not null,
+    receive_address nvarchar(255) not null,
+    order_at datetime,
     status varchar(255) not null
 
-    Constraint CK_Order_Status Check (status in ('received', 'shipping', 'transiting', 'delivered'))
+    Constraint CK_Order_Status Check (status in ('ordered', 'received', 'shipping', 'transiting', 'delivered', 'canceled'))
 )
+
 
 Create Table __Product_Type (
     type_id varchar(10) Primary Key,
@@ -186,18 +187,36 @@ As
 
     
 -- PROCEDURES PRODUCT --
-Create Proc PROC_INSERT_PRODUCT @product_id varchar(10), @type_id varchar(10), @product_name nvarchar(255), @weight float, @size varchar(255), @price int 
+Create Proc PROC_INSERT_PRODUCT @product_id varchar(10), @type_id varchar(10), @product_name nvarchar(255), @weight float, @size nvarchar(255), @price int 
 As
     Insert into _Product 
     Values (@product_id, @type_id, @product_name, @weight, @size, @price)
 
-Create Proc PROC_UPDATE_PRODUCT @product_id varchar(10), @type_id varchar(10), @product_name nvarchar(255), @weight float, @size varchar(255), @price int 
+Create Proc PROC_UPDATE_PRODUCT @product_id varchar(10), @type_id varchar(10), @product_name nvarchar(255), @weight float, @size nvarchar(255), @price int 
 As
     Update _Product
-    Set type_id = @type_id, product_id = @product_name, weight = @weight, size = @size, price = @price 
+    Set type_id = @type_id, product_name = @product_name, weight = @weight, size = @size, price = @price 
     Where product_id = @product_id
 
 Create Proc PROC_DELETE_PRODUCT @product_id varchar(10)
 As 
     Delete From _Product Where product_id = @product_id
 
+-- PROCEDURE ORDER -- 
+Create Proc PROC_INSERT_ORDER @order_id varchar(10), @sender nvarchar(255), @receiver nvarchar(255), @send_address nvarchar(255), @receive_address nvarchar(255), @order_at datetime, @status varchar(255)
+As 
+    Insert into _Order
+    Values (@order_id, @sender, @receiver, @send_address, @receive_address, @order_at, @status)
+
+Create Proc PROC_INSERT_ORDER_DETAIL @order_id varchar(10), @product_id varchar(10), @quantity int, @price int
+As 
+    Insert into __Order_Detail 
+    Values (@order_id, @product_id, @quantity, @price)
+
+Create Proc PROC_DELETE_ORDER @order_id varchar(10)
+As
+    Delete From _Order Where order_id = @order_id
+
+Create Proc PROC_DELETE_ORDER_DETAIL @order_id varchar(10)
+As 
+    Delete From __Order_Detail Where order_id = @order_id

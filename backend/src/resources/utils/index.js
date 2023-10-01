@@ -1,13 +1,16 @@
 const db = require('../../config/db');
 
-module.exports.data_handling = async (req, res, sSQL) => {
+module.exports.data_handling = async (req, res, sSQL, callback) => {
     await db.Query(sSQL)
         .then(data => {
             if (data.length > 0) {
-                return res.status(200).json({
-                    success: true,
-                    data: data
-                })
+                if(!callback) {
+                    return res.status(200).json({
+                        success: true,
+                        data: data
+                    })
+                }
+                return callback;
             }
             return res.status(404).json({
                 success: false,
@@ -21,3 +24,4 @@ module.exports.data_handling = async (req, res, sSQL) => {
             })
         })
 }
+

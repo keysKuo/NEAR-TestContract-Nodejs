@@ -2,7 +2,7 @@ GET http://localhost:8080/api/products/
 
 ### 
 
-GET http://localhost:8080/api/products/3C5AB4A0-C 
+GET http://localhost:8080/api/products/87DA0B5A
 
 ### 
 
@@ -10,8 +10,8 @@ POST http://localhost:8080/api/products/create
 Content-Type: application/json
 
 {
-    "type_id": "R70F6D",
-    "product_name": "Đèn led RGB 16 triệu màu",
+    "type_id": "R66A76",
+    "product_name": "Đèn led RGB 19 triệu màu",
     "weight": 0.5,
     "size": "Dài 3m",
     "price": 249000
@@ -23,9 +23,13 @@ PUT http://localhost:8080/api/products/update
 Content-Type: application/json
 
 {
-
+    "id": "43969A42",
+    "product_name": "Đèn led RGB 32 triệu màu",
+    "weight": 0.7,
+    "size": "Dài 2m",
+    "price": 149000
 }
 
 ### 
 
-DELETE http://localhost:8080/api/products/delete/id 
+DELETE http://localhost:8080/api/products/delete/3C5AB4A0-C
